@@ -32,3 +32,19 @@
 <b>Displays:</b>
   - Future value at maturity
   - Total interest earned over the investment period
+
+
+![calculator1](https://github.com/user-attachments/assets/e74868ad-a0c3-4d83-ae6b-94efc00a5c9a)
+
+![calculator2](https://github.com/user-attachments/assets/1d34434a-8a74-4a97-a2b9-bfb8f1c563df)
+
+<b>Error</b>
+![error](https://github.com/user-attachments/assets/7be24c8a-7cfe-4b07-b285-601dfe4d5b8c)
+
+
+<b>Interesting part of this code for me is: </b>
+
+<p>I found it quite interesting to try implementing a complex formula as code and to work on understanding it. To make it easier to understand, I broke the operations in the formula into smaller parts, which made the main formula I used cleaner and more readable.</p>
+
+
+
