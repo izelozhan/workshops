@@ -26,7 +26,7 @@ public class FinancialCalculators {
         monthlyInterestRate = annualInterestRate / 12 / 100;
         numOfMonthlyPayment = loanTermYear * 12;
 
-        //M=P×(i*(1+i)^n / ((1+i)^n)-1)
+        //M=P×(i*(1+i)^n / ((1+i)^n)-1) function
 
         double term1 = (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numOfMonthlyPayment));
         double term2 = (Math.pow(1 + monthlyInterestRate, numOfMonthlyPayment) - 1);
