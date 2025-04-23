@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class FinancialCalculators {
     public static void main(String[] args) {
-//        mortgageCalculator();
+        mortgageCalculator();
         futureValue();
     }
 
