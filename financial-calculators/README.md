@@ -49,7 +49,3 @@
 <b>Interesting part of this code for me is: </b>
 
 <p>I found it quite interesting to try implementing a complex formula as code and to work on understanding it. To make it easier to understand, I broke the operations in the formula into smaller parts, which made the main formula I used cleaner and more readable.</p>
-
-
-
-ore readable.
