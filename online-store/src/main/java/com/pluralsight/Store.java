@@ -25,9 +25,12 @@ public class Store {
             System.out.println("3. Exit");
             String userChoice = scanner.nextLine();
 
-            switch (userChoice){
+            switch (userChoice) {
                 case "1":
                     System.out.println("Display data");
+                    displayProducts(productData);
+                    searchProduct(productData, scanner);
+
                     break;
                 case "2":
                     System.out.println("Display cart");
@@ -42,6 +45,8 @@ public class Store {
 
         }
     }
+
+
 
     private static void loadProducts(String filePath, HashMap<String, Product> productData) {
         try {
@@ -71,4 +76,38 @@ public class Store {
             throw new RuntimeException(e);
         }
     }
+
+    private static void displayProducts(HashMap<String, Product> productData) {
+        //header
+        // \t\t is for tabs one \t is one tab
+        System.out.println("PRODUCT LIST");
+        System.out.println("SKU\t|\tName\t|\tPrice\t|\tDepartment");
+        //print each product with the same format
+        for (Product product : productData.values()) {
+            System.out.println(product.sku + "|" + product.name + "|" + product.price + "|" + product.department);
+        }
+
+    }
+
+    private static void searchProduct(HashMap<String, Product> productData, Scanner scanner) {
+        System.out.println("Which product are you looking for?");
+        String searchString = scanner.nextLine().trim();
+
+        //if user enters price as string, need to convert to double
+
+        double searchPrice = Double.parseDouble(searchString);
+
+        //user be able to search by name, price or department
+        for(Product product : productData.values()){
+            String name = product.name.trim();
+            double price = product.price;
+            String department = product.department.trim();
+
+            if (name.equalsIgnoreCase(searchString) || department.equalsIgnoreCase(searchString)){
+                System.out.println("Your searched matches these products; ");
+                System.out.println(product.sku + "|" + product.name + "|" + product.price + "|" + product.department);
+            }
+        }
+    }
+
 }
