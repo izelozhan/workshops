@@ -13,25 +13,59 @@ public class Dealership {
         this.inventory = new ArrayList<>();
     }
 
+    public Dealership() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
+        return null;
     }
 
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        return null;
     }
 
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
+        return null;
 
     }
 
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        return null;
 
     }
 
     public ArrayList<Vehicle> getVehiclesByMileage(double min, double max) {
+        return null;
 
     }
 
     public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
+        return null;
 
     }
 
@@ -46,6 +80,7 @@ public class Dealership {
     public void removeVehicle(Vehicle vehicle) {
         inventory.remove(vehicle);
     }
+
 
 
 }
