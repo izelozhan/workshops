@@ -46,8 +46,6 @@ public class Store {
         }
     }
 
-
-
     private static void loadProducts(String filePath, HashMap<String, Product> productData) {
         try {
             FileReader fileReader = new FileReader(filePath);
@@ -94,7 +92,6 @@ public class Store {
         String searchString = scanner.nextLine().trim();
 
         //if user enters price as string, need to convert to double
-
         double searchPrice = Double.parseDouble(searchString);
 
         //user be able to search by name, price or department
