@@ -1,3 +1,6 @@
+import Models.Dealership;
+import Models.Vehicle;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,7 +9,7 @@ public class DealershipFileManager {
     static String filePath = "src/main/resources/inventory.csv";
     Dealership dealership = null;
 
-    private Dealership getDealership() {
+    public Dealership getDealership() {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
@@ -22,7 +25,7 @@ public class DealershipFileManager {
                 dealership = new Dealership(name, address, phone);
             }
 
-            //vehicle
+            //add vehicle to dealership
             String inputLine;
             while ((inputLine = reader.readLine()) != null) {
                 String[] parts = inputLine.split("\\|");
@@ -38,14 +41,14 @@ public class DealershipFileManager {
                 Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
                 dealership.addVehicle(vehicle);
             }
-
+            reader.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return dealership;
     }
 
-    private Dealership saveDealership(){
+    private Dealership saveDealership(Dealership dealership) {
         return null;
     }
 }
