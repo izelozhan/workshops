@@ -22,7 +22,7 @@ public class UserInterface {
         init();
         displayMenuOptions();
         receiveAndPerformUserOption();
-        displayVehicles();
+        displayVehicles(dealership.getAllVehicles());
     }
 
     public void displayMenuOptions() {
