@@ -1,13 +1,12 @@
+package Services;
+
 import Models.Dealership;
 import Models.Vehicle;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class DealershipFileManager {
     static String filePath = "src/main/resources/inventory.csv";
-    Dealership dealership = null;
+    Dealership dealership;
 
     public Dealership getDealership() {
 
@@ -22,6 +21,7 @@ public class DealershipFileManager {
                 String address = parts[1];
                 String phone = parts[2];
 
+                System.out.println("Creating Dealership...");
                 dealership = new Dealership(name, address, phone);
             }
 
@@ -39,6 +39,7 @@ public class DealershipFileManager {
                 double price = Double.parseDouble(parts[7]);
 
                 Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+                System.out.println("Adding Vehicle...");
                 dealership.addVehicle(vehicle);
             }
             reader.close();
@@ -48,7 +49,17 @@ public class DealershipFileManager {
         return dealership;
     }
 
-    private Dealership saveDealership(Dealership dealership) {
-        return null;
+    public void saveDealership(Dealership dealership) {
+        try {
+            PrintWriter printWriter = new PrintWriter(new FileWriter(filePath));
+            printWriter.println(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone());
+            for (Vehicle vehicle : dealership.getAllVehicles()){
+                printWriter.println(vehicle.toFileString());
+            }
+            printWriter.close();
+
+        } catch (IOException e){
+            throw new RuntimeException("Failed to save dealership");
+        }
     }
 }
