@@ -1,12 +1,14 @@
 package Models;
 
+import Services.DealershipFileManager;
+
 import java.util.ArrayList;
 
 public class Dealership {
-    private String name;
-    private String address;
-    private String phone;
-    private final ArrayList<Vehicle> inventory;
+    String name;
+    String address;
+    String phone;
+    ArrayList<Vehicle> inventory;
 
 
     public Dealership(String name, String address, String phone) {
@@ -53,13 +55,13 @@ public class Dealership {
     }
 
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
-      ArrayList<Vehicle> results = new ArrayList<>();
-      for (Vehicle vehicle : inventory){
-          if (vehicle.getYear() >= min && vehicle.getYear() <= max){
-              results.add(vehicle);
-          }
-      }
-      return results;
+        ArrayList<Vehicle> results = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() >= min && vehicle.getYear() <= max) {
+                results.add(vehicle);
+            }
+        }
+        return results;
     }
 
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
@@ -104,6 +106,11 @@ public class Dealership {
         inventory.remove(vehicle);
     }
 
+    public void sellVehicle (String date, String customerName, String customerEmail, boolean isFinanced, int VIN){
+        inventory.
+    }
+    public void leaseVehicle (String date, String customerName, String customerEmail, int VIN){
 
+    }
 
 }

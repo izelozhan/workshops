@@ -11,6 +11,7 @@ public class UserInterface {
     Scanner scanner;
     Dealership dealership;
     DealershipFileManager fileManager;
+    int userAction;
 
     public UserInterface() {
         this.scanner = new Scanner(System.in);
@@ -23,7 +24,6 @@ public class UserInterface {
 
     public void display() {
      init();
-     int userAction;
      do {
          displayMenuOptions();
          userAction = Integer.parseInt(scanner.nextLine());
@@ -168,7 +168,32 @@ public class UserInterface {
     }
 
     private void processSellLeaseRequest(){
+        System.out.println("""
+                ---------------- SELL/LEASE CAR ----------------
+                1 - I want to sell
+                2 - I want to lease
+                """);
+//can't lease a vehicle over 3 years old
+        int input = Integer.parseInt(scanner.nextLine());
+        int searchVin;
+        if (input == 1){
+            System.out.println("Please enter the VIN of the vehicle you want to sell: ");
+            int vinToSell = Integer.parseInt(scanner.nextLine());
 
+            processSellRequest();
+
+        } else if (input == 2) {
+            System.out.println("Please enter the VIN of the vehicle you want to lease: ");
+            processLeaseRequest();
+        } else {
+            System.out.println("Please enter a valid number");
+        }
+    }
+
+    private void processLeaseRequest() {
+    }
+
+    private void processSellRequest() {
     }
 
 }
