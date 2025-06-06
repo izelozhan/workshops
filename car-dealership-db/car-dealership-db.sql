@@ -81,36 +81,3 @@ INSERT INTO sales_contract (vin, contract_date, customer_name, total_price)
 VALUES 
 (10118, "2024-08-15", "Alice Johnson", 10800.0),
 (10119, "2024-07-10", "Bob Smith", 12950.0);
-
--- Questions
-
--- 01
-SELECT * from dealerships;
-
--- 02
-
-SELECT * FROM vehicles RIGHT JOIN inventory 
-ON inventory.dealership_id = dealership_id
-WHERE dealership_id = (SELECT dealership_id FROM dealerships
-	WHERE dealership_name LIKE "%1%");
-
--- 03
-SELECT * FROM vehicles
-WHERE vin = 10118;
-
--- 04 
-SELECT * FROM dealerships LEFT JOIN inventory 
-ON inventory.vin = vin
-WHERE vin = 10118;
-
--- 05 
-SELECT DISTINCT * FROM dealerships 
-JOIN inventory  ON dealership_id = inventory.dealership_id
-JOIN vehicles v ON inventory.VIN = VIN
-WHERE make = 'Nissan' AND model = 'Altima' AND color = 'Gray';
-
--- 06
-
-
-
-
